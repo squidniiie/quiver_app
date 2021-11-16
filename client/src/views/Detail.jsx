@@ -39,7 +39,7 @@ const Detail = () => {
                             <th className="h4">About</th>
                         </thead>
                         <tbody className="col">
-                            <tr>Position: {userState.position}</tr>
+                            <tr>Position!: {userState.position}</tr>
                             <tr>Treasures: {userState.numOfTreasure}</tr>
                             <tr>Peg Leg: {pegLeg ? "Yes" : "No"}
                                 <button className="switch btn btn-primary" onClick={() => setPegLeg(!pegLeg)}>{pegLeg ? "No" : "Yes"}</button>
