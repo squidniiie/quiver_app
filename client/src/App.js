@@ -15,7 +15,6 @@ import List from './components/List';
 function App() {
   return (
     <BrowserRouter>
-      <h1>Sydnie</h1>
       <div className="App">
         <Switch>
           <Route exact path="/">

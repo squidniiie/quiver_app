@@ -18,10 +18,10 @@ const Main = () => {
         axios.get('http://localhost:8000/api/users')
             .then(res => {
                 setUsers(res.data);
-                setSubmitted(res.data);
+                setSubmitted(true);
             })
             .catch(err => console.error(err));
-    }, [submitted]);
+    }, []);
 
     const removeFromDom = userId => {
         setUsers(users.filter(user => user._id !== userId));
