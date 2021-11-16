@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-radius: 20%;
+}
+div.col-4.card.bg-light { 
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+.card.col-3.bg-light {
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.h2 {
+    display: flex;
+    justify-content: center;
+}
+.h1 {
+    text-align: center; 
+    font-weight: bold; 
+}
+.h4 {
+    display:flex;
+    justify-content: center; 
+}
+.card-img {
+    display:flex;
+    justify-content: center;
+    margin-bottom: 10px;
+    border-radius: 10%;
+}
+.detail-img {
+    display:flex;
+    justify-content: center;
+    border-radius: 10%;
+}
+div.border.bg-light.col{
+    padding: 20px;
+    margin: 20px;
+    border-radius: 16%;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items:center;
+}
+table.col {
+    display: flex;
+    justify-content: center; 
+    flex-direction: column;
+}
+tbody.col{
+text-align: center;
+display: flex;
+flex-direction: column;
+} 
+form.col {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.nav.button {
+    display: block;
+}
+button.btn.btn-info {
+    margin: 20px 0px 0px 20px;
+}
+button.btn.btn-warning {
+    margin: 20px;
+}
+.switch.btn.btn-primary {
+    margin: 5px;
+}
+form.col-3.card.bg-light {
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.edit-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+label.h5 {
+    text-align: center;
+}
+
+
+
+
