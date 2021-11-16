@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
-// import { Button, Card } from 'react-bootstrap';
-// import 'bootstrap/dist/css/bootstrap.min.css';
 import '../static/List.css'
 
 const List = (props) => {
