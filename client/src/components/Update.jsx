@@ -4,37 +4,31 @@ import { useParams, Link, useHistory } from "react-router-dom";
 
 const Update = () => {
     const { id } = useParams();
-    const [pirateName, setPirateName] = useState("");
+    const [userName, setUserName] = useState("");
     const [imgUrl, setImgUrl] = useState("");
-    const [numOfTreasure, setNumOfTreasure] = useState(0);
-    const [catchPhrase, setCatchPhrase] = useState("");
-    const [position, setPosition] = useState("");
-    const [pegLeg, setPegLeg] = useState(true);
-    const [eyePatch, setEyePatch] = useState(true);
-    const [hookHand, setHookHand] = useState(true);
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/users/${id}`)
+        axios.get(`http://localhost:9000/api/users/${id}`)
             .then(res => {
-                setPirateName(res.data.pirateName);
-                setCatchPhrase(res.data.catchPhrase);
+                console.log(res.data);
+                setUserName(res.data.userName);
                 setImgUrl(res.data.imgUrl);
+                setEmail(res.data.email);
+                setPassword(res.data.password);
             })
     }, []);
 
     const updateUser = e => {
         e.preventDefault();
-        axios.put(`http://localhost:8000/api/users/${id}`, {
-            pirateName,
+        axios.put(`http://localhost:9000/api/users/${id}`, {
+            userName,
             imgUrl,
-            numOfTreasure,
-            catchPhrase,
-            position,
-            pegLeg,
-            eyePatch,
-            hookHand
+            email,
+            password
         })
             .then(res => {
                 console.log(res)
@@ -56,16 +50,16 @@ const Update = () => {
             <Link to={"/"}>
                 Home
             </Link>
-            <p className="h1">Edit this Pirate:</p>
+            <p className="h1">Edit this User:</p>
             <div className="container">
                 <form className="col-3 card bg-light" onSubmit={updateUser}>
                     {errors.map((err, index) => <p key={index}>{err}</p>)}
                     <p className="edit-form">
-                        <label className="h5">Edit Pirate Name</label><br />
+                        <label className="h5">Edit User Name</label><br />
                         <input className="col" type="text"
-                            name="pirateName"
-                            value={pirateName}
-                            onChange={(e) => { setPirateName(e.target.value) }} />
+                            name="userName"
+                            value={userName}
+                            onChange={(e) => { setUserName(e.target.value) }} />
                     </p>
                     <div className="detail-img"><img className="detail-img" src={imgUrl} alt="img" style={{ width: "200px" }} /></div>
                     <p className="edit-form">
@@ -76,29 +70,18 @@ const Update = () => {
                             onChange={(e) => { setImgUrl(e.target.value) }} />
                     </p>
                     <p className="edit-form">
-                        <label className="h5">Edit Catch Phrase</label><br />
+                        <label className="h5">Edit Email</label><br />
                         <input type="text"
-                            name="catchPhrase"
-                            value={catchPhrase}
-                            onChange={(e) => { setCatchPhrase(e.target.value) }} />
+                            name="email"
+                            value={email}
+                            onChange={(e) => { setEmail(e.target.value) }} />
                     </p>
                     <p className="edit-form">
                         <label className="h5">Edit Number of Treasure Chests:</label><br />
                         <input type="number"
-                            name="numOfTreasure"
-                            value={numOfTreasure}
-                            onChange={(e) => { setNumOfTreasure(e.target.value) }} />
-                    </p>
-                    <p className="edit-form">
-                        <label className="h5">Edit Crew Position</label><br />
-                        <select name="position" id="position" onChange={(e) => setPosition(e.target.value)} >
-                            <option value={position}></option>
-                            <option value="Captain">Captain</option>
-                            <option value="First Mate">First Mate</option>
-                            <option value="Quarter Master">Quarter Master</option>
-                            <option value="Boatswain">Boatswain</option>
-                            <option value="Powder Monkey">Powder Monkey</option>
-                        </select>
+                            name="password"
+                            value={password}
+                            onChange={(e) => { setPassword(e.target.value) }} />
                     </p>
                     <div className="btn btn-group">
                         <input className="btn btn-warning" type="submit" value="Update" onSubmit={(e) => history.push("/")} />

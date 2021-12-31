@@ -40,6 +40,9 @@ packages/react-devtools-shell/dist
 /.pnp
 .pnp.js
 
+# env
+.env
+
 # testing
 /coverage
 

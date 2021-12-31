@@ -10,7 +10,7 @@ const Detail = () => {
     const [eyePatch, setEyePatch] = useState(true);
     const [hookHand, setHookHand] = useState(true);
     useEffect(() => {
-        axios.get(`http://localhost:8000/api/users/${id}`)
+        axios.get(`http://localhost:9000/api/users/${id}`)
             .then(res => {
                 console.log(res.data)
                 setUserState(res.data)

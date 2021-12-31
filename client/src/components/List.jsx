@@ -10,7 +10,7 @@ const List = (props) => {
     const history = useHistory();
 
     useEffect(() => {
-        axios.get('http://localhost:8000/api/users')
+        axios.get('http://localhost:9000/api/users')
             .then(res => {
                 console.log(res.data)
                 setUsers(res.data)
@@ -19,7 +19,7 @@ const List = (props) => {
     }, [submitted])
 
     const deleteUser = (userId) => {
-        axios.delete('http://localhost:8000/api/users/' + userId)
+        axios.delete('http://localhost:9000/api/users/' + userId)
             .then(res => {
                 removeFromDom(userId)
             })
@@ -31,14 +31,14 @@ const List = (props) => {
             <div className="row">
                 {props.users.map((user, idx) => {
                     return <div className="border bg-light col" key={idx}>
-                        <p className="h2">{user.pirateName}</p>
+                        <p className="h2">{user.userName}</p>
                         <div className="card-img"><img className="card-img" src={user.imgUrl} alt="img" style={{ width: "200px", height: "180px" }} /></div>
                         <div className="btn-group">
                             <button className="btn btn-success" onClick={(e) => { deleteUser(user._id) }}>
-                                Walk the Plank
+                                Delete User
                             </button>
                             <button className="btn btn-primary" onClick={(e) => history.push(`users/${user._id}`)}>
-                                View Pirate
+                                View User
                             </button>
                         </div>
                     </div>
