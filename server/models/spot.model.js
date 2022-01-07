@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 const SpotSchema = new mongoose.Schema({
+    imgUrl: {
+        type: String,
+        // required: [true, "Please add an image link"]
+    },
     name: {
         type: String,
         required: [true, "Name is required"],

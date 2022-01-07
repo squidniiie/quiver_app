@@ -1,6 +1,6 @@
 const { User } = require('../models/user.models');
 const jwt = require("jsonwebtoken");
-
+require('dotenv').config();
 
 
 // REGISTER METHOD---------------------------------------
@@ -38,7 +38,7 @@ module.exports.login = async (request, response) => {
     }, process.env.FIRST_SECRET_KEY);
     // note that the response object allows chained calls to cookie and json
     response
-        .cookie("userToken", userToken, {
+        .cookie("userToken", userToken, process.env.FIRST_SECRET_KEY, {
             httpOnly: true
         })
         .json({ msg: "Success!" });

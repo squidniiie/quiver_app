@@ -5,17 +5,18 @@ import {
   Switch,
   Route
 } from "react-router-dom";
-import Main from './views/Main';
+import Dashboard from './views/Dashboard';
 import Index from './views/Index';
 // import Detail from './views/Detail';
 // import Update from './views/Update';
 import Form from './components/Form';
 import List from './components/List';
-import SpotList from './components/SpotList';
-import SpotForm from './components/SpotForm';
+import SpotList from './components/Home/SpotList';
+import SpotForm from './components/Home/SpotForm';
 
 
 function App() {
+  // cookies
   axios.defaults.withCredentials = true;
 
   return (
@@ -23,7 +24,7 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path="/dashboard">
-            <Main />
+            <Dashboard />
           </Route>
           <Route exact path="/new_user">
             <Form />
