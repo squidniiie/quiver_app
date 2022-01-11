@@ -12,22 +12,56 @@ const SpotForm = () => {
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
+
+    // const onSubmitHandler = (e) => {
+    // const newSpot = {
+    //     imgUrl,
+    //     name,
+    //     location,
+    //     level,
+    //     board,
+    //     breakType
+    // };
+    // axios.post('http://localhost:9000/api/new_spot', newSpot, { withCredentials: true })
+    //     .then(res => {
+    //         console.log(res)
+    //     })
+    //     .catch(err => {
+    //         console.log(err)
+    //         const errorResponse = err.response.data.errors;
+    //         const errorArr = [];
+    //         for (const key of Object.keys(errorResponse)) {
+    //             errorArr.push(errorResponse[key].message)
+    //         }
+    //         setErrors(errorArr);
+    //     })
+
+
     const onSubmitHandler = e => {
         e.preventDefault();
-        axios.post('http://localhost:9000/api/new_spot', {
-            imgUrl,
-            name,
-            location,
-            level,
-            board,
-            breakType
-        })
-            .then(res => {
-                history.push("/")
+        axios.post('http://localhost:9000/api/new_spot',
+            {
+                withCredentials: true,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                }
+            },
+            {
+                imgUrl,
+                name,
+                location,
+                level,
+                board,
+                breakType
             })
+            .then(res => {
+                history.push("/dashboard")
+                console.log(res)
+            })
+
             .catch(err => {
+                console.log(err)
                 const errorResponse = err.response.data.errors;
-                console.log(errorResponse)
                 const errorArr = [];
                 for (const key of Object.keys(errorResponse)) {
                     errorArr.push(errorResponse[key].message)
@@ -39,9 +73,6 @@ const SpotForm = () => {
         <div className="shadow-xl bg-gray-50 rounded-lg p-4 m-4" >
             <h1 className='text-2xl font-bold text-center'>Add Surf Spot</h1>
             <br />
-            {/* <button onClick={(e) => history.push('/')}>
-                Surf Spots
-            </button> */}
             <form onSubmit={onSubmitHandler} className='font-Quicksand text-center'>
                 {errors.map((err, index) => <p className='text-red-500' key={index}>{err}</p>)}
                 <label>Spot Name:</label>
@@ -79,7 +110,7 @@ const SpotForm = () => {
                 <p className="flex items-center border-2 border-gray-50 shadow-md rounded-full bg-white" >
                     <select className="flex-grow pl-1 bg-transparent outline-none text-sm sm:m-1 md:text-center sm:text-left text-gray-600 font-Quicksand bg-white" name="breakType" id="breakType" onChange={(e) => setBreakType(e.target.value)} value={breakType}>
                         <option></option>
-                        <option value="breakbreak">breakbreak</option>
+                        <option value="beachbreak">beachbreak</option>
                         <option value="pointbreak">pointbreak</option>
                         <option value="reefbreak">reefbreak</option>
                     </select>
