@@ -28,7 +28,7 @@ app.use(cors(
         credentials: true,
         origin: 'http://localhost:3000',
         // headers: { "Access-Control-Allow-Origin": ["*"] },
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST", "DELETE", "PUT"]
     }));
 
 //required for post request

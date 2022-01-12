@@ -1,6 +1,6 @@
 import React from 'react'
 import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, ChevronDoubleRightIcon, ChevronRightIcon } from '@heroicons/react/solid'
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 
 const Header = () => {
     const history = useHistory();
@@ -8,7 +8,7 @@ const Header = () => {
         <header className="sticky top-0 z-50 grid grid-cols-3 bg-gray-50 shadow-md px-2 md:px-4">
             <div className="relative h-18 cursor-pointer flex w-28 py-5">
                 <ChevronDoubleRightIcon className='h-9 font-Quicksand text-green-400 text-4xl' />
-                <p className="text-2xl font-Quicksand font-semibold text-green-400">quiver</p>
+                <Link to="/" className="text-2xl font-Quicksand font-semibold text-green-400">quiver</Link>
                 <ChevronRightIcon className='h-9 font-Quicksand text-green-400 text-4xl' />
             </div>
             <div className="flex items-center border-1 shadow-lg rounded-full mt-4 mb-4 pr-2">

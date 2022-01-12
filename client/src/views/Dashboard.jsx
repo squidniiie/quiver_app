@@ -1,14 +1,14 @@
 import React from 'react'
 // import axios from 'axios';
 import Header from '../components/Header';
-// import Banner from '../components/Home/Banner';
 import Main from '../components/Home/Main';
+// import Banner from '../components/Home/Banner';
 // import SearchPage from './SearchPage';
 // import List from '../components/List';
 // import SpotList from '../components/Home/SpotList'
-// import SpotForm from '../components/SpotForm';
+// import SpotForm from '../components/Home/SpotForm';
 // import { useHistory } from 'react-router-dom';
-import '../static/List.css'
+// import '../static/List.css'
 import Sidebar from '../components/Home/Sidebar';
 
 

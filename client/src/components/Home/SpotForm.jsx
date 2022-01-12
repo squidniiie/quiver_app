@@ -7,58 +7,26 @@ const SpotForm = () => {
     const [name, setName] = useState('');
     const [location, setLocation] = useState('');
     const [level, setLevel] = useState('');
-    const [board, setBoard] = useState(true);
+    const [board, setBoard] = useState('');
     const [breakType, setBreakType] = useState('');
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
-
-    // const onSubmitHandler = (e) => {
-    // const newSpot = {
-    //     imgUrl,
-    //     name,
-    //     location,
-    //     level,
-    //     board,
-    //     breakType
-    // };
-    // axios.post('http://localhost:9000/api/new_spot', newSpot, { withCredentials: true })
-    //     .then(res => {
-    //         console.log(res)
-    //     })
-    //     .catch(err => {
-    //         console.log(err)
-    //         const errorResponse = err.response.data.errors;
-    //         const errorArr = [];
-    //         for (const key of Object.keys(errorResponse)) {
-    //             errorArr.push(errorResponse[key].message)
-    //         }
-    //         setErrors(errorArr);
-    //     })
-
-
-    const onSubmitHandler = e => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:9000/api/new_spot',
-            {
-                withCredentials: true,
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                }
-            },
-            {
-                imgUrl,
-                name,
-                location,
-                level,
-                board,
-                breakType
-            })
+        const newSpot = {
+            imgUrl,
+            name,
+            location,
+            level,
+            board,
+            breakType
+        };
+        axios.post('http://localhost:9000/api/new_spot', newSpot, { withCredentials: true })
             .then(res => {
-                history.push("/dashboard")
                 console.log(res)
+                history.push("/dashboard")
             })
-
             .catch(err => {
                 console.log(err)
                 const errorResponse = err.response.data.errors;
@@ -69,6 +37,7 @@ const SpotForm = () => {
                 setErrors(errorArr);
             })
     }
+
     return (
         <div className="shadow-xl bg-gray-50 rounded-lg p-4 m-4" >
             <h1 className='text-2xl font-bold text-center'>Add Surf Spot</h1>

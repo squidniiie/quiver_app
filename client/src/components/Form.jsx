@@ -13,34 +13,32 @@ const Form = () => {
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
-    const onSubmitHandler = e => {
+    const onSubmitHandler = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:9000/api/new_user', {
+        const newUser = {
             userName,
             imgUrl,
             email,
             password,
             confirmPassword
-        },
-            { withCredentials: true, }
-            // { headers: { 'Access-Control-Allow-Origin': 'http://localhost:3000' } }
-            // { headers: ["Accept"] }
-        )
+        }
+        axios.post('http://localhost:9000/api/new_user', newUser, { withCredentials: true })
             .then(res => {
                 history.push("/dashboard")
                 console.log(res)
                 console.log(res.data)
             })
-            .catch(err => console.log(err))
-        // .catch(err => {
-        //     const errorResponse = err.response.data.errors;
-        //     console.log(errorResponse)
-        //     const errorArr = [];
-        //     for (const key of Object.keys(errorResponse)) {
-        //         errorArr.push(errorResponse[key].message)
-        //     }
-        //     setErrors(errorArr);
-        // })
+
+            .catch(err => {
+                console.log(err)
+                console.log("Didn't work")
+                // const errorResponse = err.response.data.errors;
+                // const errorArr = [];
+                // for (const key of Object.keys(errorResponse)) {
+                //     errorArr.push(errorResponse[key].message)
+                // }
+                // setErrors(errorArr);
+            })
     }
 
     return (
