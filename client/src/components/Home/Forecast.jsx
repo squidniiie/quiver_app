@@ -36,7 +36,7 @@ const Forecast = () => {
                                 <tr className='font-Quicksand'>Air Temperature: {item.airTemperature.noaa}°</tr>
                             </tr>))
                             : <div className="grid grid-cols-2 gap-20 p-4 m-8 rounded-xl shadow-lg h-50 transform transition duration-500 hover:scale-95 hover:shadow-xl text-gray-700 hover:opacity-80">
-                                <img className="object-contain rounded-xl relative m-1 w-50 h-50" src='https://images.squarespace-cdn.com/content/v1/527c03e4e4b03247a686bb74/1463104387626-4T0DR5451QPF2MLKR41U/Kelly+Slater+Pipeline.JPG?format=1000w'></img>
+                                <img className="object-contain rounded-xl relative m-1 w-50 h-50" src='https://images.squarespace-cdn.com/content/v1/527c03e4e4b03247a686bb74/1463104387626-4T0DR5451QPF2MLKR41U/Kelly+Slater+Pipeline.JPG?format=1000w' alt="img"></img>
                                 <div className="grid grid-cols-1 m-4">
                                     <div>
                                         <p className='font-bold text-2xl font-Montserrat gap-1 cursor-pointer'>Hale'iwa

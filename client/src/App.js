@@ -32,17 +32,8 @@ function App() {
           <Route exact path="/new_spot">
             <SpotForm />
           </Route>
-          {/* <Route exact path="/users/:id">
-            <Detail />
-          </Route> */}
-          {/* <Route exact path="/users/:id/edit">
-            <Update />
-          </Route> */}
           <Route exact path="/users">
             <List />
-          </Route>
-          <Route exact path="/users/:id">
-            <Index />
           </Route>
           <Route exact path="/spots">
             <SpotList />

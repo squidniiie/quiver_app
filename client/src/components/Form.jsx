@@ -30,14 +30,14 @@ const Form = () => {
             })
 
             .catch(err => {
-                console.log(err)
-                console.log("Didn't work")
-                // const errorResponse = err.response.data.errors;
-                // const errorArr = [];
-                // for (const key of Object.keys(errorResponse)) {
-                //     errorArr.push(errorResponse[key].message)
-                // }
-                // setErrors(errorArr);
+                // console.log(err)
+                // console.log("Didn't work")
+                const errorResponse = err.response.data.errors;
+                const errorArr = [];
+                for (const key of Object.keys(errorResponse)) {
+                    errorArr.push(errorResponse[key].message)
+                }
+                setErrors(errorArr);
             })
     }
 
@@ -75,7 +75,6 @@ const Form = () => {
                     </form>
                 </div>
             </div>
-
         </div>
     )
 };

@@ -9,6 +9,7 @@ module.exports.authenticate = (request, response, next) => {
         } else {
             next();
         }
+        console.log(process.env.FIRST_SECRET_KEY)
         console.log("Cookies")
     });
 }

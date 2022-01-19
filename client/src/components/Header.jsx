@@ -1,9 +1,28 @@
 import React from 'react'
+import axios from 'axios'
 import { SearchIcon, GlobeAltIcon, MenuIcon, UserCircleIcon, ChevronDoubleRightIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useHistory, Link } from 'react-router-dom';
 
 const Header = () => {
     const history = useHistory();
+
+    const onSubmitHandler = (e) => {
+        e.preventDefault();
+        axios
+            .post("http://localhost:9000/api/users/logout", {}, { withCredentials: true })
+            .then((res) => {
+                //send this message to server directly
+                console.log("sending data", res);
+                localStorage.clear();
+                history.push("/")
+
+            })
+            .catch((err) => {
+                console.log(err.response);
+                //setErrors(err.response.data.errors);
+            });
+    };
+
     return (
         <header className="sticky top-0 z-50 grid grid-cols-3 bg-gray-50 shadow-md px-2 md:px-4">
             <div className="relative h-18 cursor-pointer flex w-28 py-5">
@@ -22,7 +41,7 @@ const Header = () => {
                     <MenuIcon className="h-8" />
                     <UserCircleIcon className="h-8 cursor-pointer" />
                 </div>
-
+                <button onClick={onSubmitHandler} className="hidden md:inline-flex font-Quicksand cursor-pointer">Logout</button>
             </div>
             {/* <Image src="https://www.wapititravel.com/blog/wp-content/uploads/2020/11/Quinta-das-Camelias-Ponta-Delgada-Azores-1024x768.jpg.webp"
                     layout="fill"
